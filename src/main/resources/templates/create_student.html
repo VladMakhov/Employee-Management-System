@@ -17,15 +17,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/students}">Student Management</a>
-            </li>
-        </ul>
-    </div>
 </nav>
 <br>
 <br>
@@ -42,7 +33,7 @@
                                 name="firstName"
                                 th:field="*{name}"
                                 class="form-control"
-                                placeholder="Enter Student First Name"
+                                placeholder="Name"
                         />
                     </div>
 
@@ -53,7 +44,7 @@
                                 name="lastName"
                                 th:field="*{surname}"
                                 class="form-control"
-                                placeholder="Enter Student Last Name"
+                                placeholder="Last Name"
                         />
                     </div>
 
@@ -64,7 +55,7 @@
                                 name="email"
                                 th:field="*{email}"
                                 class="form-control"
-                                placeholder="Enter Student Email"
+                                placeholder="Email"
                         />
                     </div>
 
@@ -72,6 +63,9 @@
                         <button type="submit" class="btn btn-primary">
                             Submit
                         </button>
+                        <br>
+                        <br>
+                        <a th:href="@{/students}">Back To Students</a>
                     </div>
                 </form>
 
