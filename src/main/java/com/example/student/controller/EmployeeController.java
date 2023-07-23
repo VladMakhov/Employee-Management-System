@@ -1,6 +1,7 @@
 package com.example.student.controller;
 
 import com.example.student.entity.Employee;
+import com.example.student.entity.Task;
 import com.example.student.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,4 +71,12 @@ public class EmployeeController {
     public String addTaskToEmployee(@PathVariable int id) {
         return "all_tasks";
     }
+
+    @GetMapping("/employees/newTask")
+    public String createNewTask(Model model) {
+        Task task = new Task();
+        model.addAttribute("task", task);
+        return "create_task";
+    }
+
 }

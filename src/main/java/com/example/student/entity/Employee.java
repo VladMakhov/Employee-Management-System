@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +22,9 @@ public class Employee {
     private String department;
     private String title;
     private int salary;
+
+    @OneToMany(mappedBy = "employeeId", cascade = CascadeType.ALL)
+    private List<Task> taskList;
 
     public Employee(String name, String surname, String department, String title, int salary) {
         this.name = name;
