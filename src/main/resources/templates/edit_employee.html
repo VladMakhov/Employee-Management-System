@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Student Management System</a>
+    <a class="navbar-brand" href="#">Employee Management System</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -24,39 +24,59 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center"> Update Student </h1>
+            <h1 class="text-center"> Update Employee </h1>
             <div class="card-body">
-                <form th:action="@{/students/{id} (id=${student.id})}" th:object="${student}" method="POST">
+                <form th:action="@{/employees/{id} (id=${employee.id})}" th:object="${employee}" method="POST">
                     <div class="form-group">
-                        <label> Student First Name </label>
+                        <label> First Name </label>
                         <input
                                 type="text"
                                 name="firstName"
                                 th:field="*{name}"
                                 class="form-control"
-                                placeholder="Enter Student First Name"
+                                placeholder="Enter Employee First Name"
                         />
                     </div>
 
                     <div class="form-group">
-                        <label> Student Last Name </label>
+                        <label> Last Name </label>
                         <input
                                 type="text"
                                 name="lastName"
                                 th:field="*{surname}"
                                 class="form-control"
-                                placeholder="Enter Student Last Name"
+                                placeholder="Enter Employee Last Name"
                         />
                     </div>
 
                     <div class="form-group">
-                        <label> Student Email </label>
+                        <label> Department </label>
                         <input
                                 type="text"
-                                name="email"
-                                th:field="*{email}"
+                                name="department"
+                                th:field="*{department}"
                                 class="form-control"
-                                placeholder="Enter Student Email"
+                                placeholder="Enter Employee Department"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Title </label>
+                        <input
+                                type="text"
+                                name="title"
+                                th:field="*{title}"
+                                class="form-control"
+                                placeholder="Enter Employee Title"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Salary </label>
+                        <input
+                                type="text"
+                                name="salary"
+                                th:field="*{salary}"
+                                class="form-control"
+                                placeholder="Enter Employee Salary"
                         />
                     </div>
 
@@ -66,7 +86,7 @@
                         </button>
                         <br>
                         <br>
-                        <a th:href="@{/students}">Back To Students</a>
+                        <a th:href="@{/employees}">Back To Employees</a>
                     </div>
                 </form>
 
