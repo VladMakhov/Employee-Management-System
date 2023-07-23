@@ -24,7 +24,6 @@
     <div class="row">
         <div class="col-lg-3">
             <a th:href="@{/employees}" class="btn btn-primary btn-sm mb-3">Back To Employee</a>
-            <a th:href="@{/employees/newTask}" class="btn btn-success btn-sm mb-3">Add New Task</a>
         </div>
     </div>
 
@@ -38,7 +37,7 @@
         <tbody>
         <tr th:each="task: ${tasks}">
             <th th:text="${task.getDescription()}"></th>
-            <th><a th:href="@{/employees/deleteTask/{id}(id=${task.getId()})}" class="btn btn-success">Submit</a></th>
+            <th><a th:href="@{/employees/deleteTask/{id}(id=${task.getId()})}" class="btn btn-success">Task is Complete</a></th>
         </tr>
         </tbody>
     </table>
