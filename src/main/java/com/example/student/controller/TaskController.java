@@ -1,6 +1,5 @@
 package com.example.student.controller;
 
-import com.example.student.entity.Employee;
 import com.example.student.entity.Task;
 import com.example.student.service.EmployeeService;
 import com.example.student.service.TaskService;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
 
 @Controller
 public class TaskController {
@@ -27,6 +25,7 @@ public class TaskController {
     @GetMapping("/employees/tasks/{id}")
     public String listTasks(Model model, @PathVariable Integer id) {
         model.addAttribute("tasks", taskService.getTasksById(id));
+        model.addAttribute("employeeId", id);
         return "all_tasks";
     }
 
