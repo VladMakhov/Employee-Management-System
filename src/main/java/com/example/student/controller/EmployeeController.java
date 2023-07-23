@@ -41,12 +41,6 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("employees/edit/{id}")
-    public String editEmployeeForm(@PathVariable int id, Model model) {
-        model.addAttribute("employee", employeeService.getEmployeeById(id));
-        return "edit_employee";
-    }
-
     @PostMapping("/employees/{id}")
     public String updateEmployee(@PathVariable int id, @ModelAttribute("employee") Employee employee) {
         Employee existingEmployee = employeeService.getEmployeeById(id);
@@ -61,22 +55,16 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
+    @GetMapping("employees/edit/{id}")
+    public String editEmployeeForm(@PathVariable int id, Model model) {
+        model.addAttribute("employee", employeeService.getEmployeeById(id));
+        return "edit_employee";
+    }
+
     @GetMapping("/employees/{id}")
     public String deleteEmployee(@PathVariable int id) {
         employeeService.deleteEmployeeById(id);
         return "redirect:/employees";
-    }
-
-    @GetMapping("/employees/task/{id}")
-    public String addTaskToEmployee(@PathVariable int id) {
-        return "all_tasks";
-    }
-
-    @GetMapping("/employees/newTask")
-    public String createNewTask(Model model) {
-        Task task = new Task();
-        model.addAttribute("task", task);
-        return "create_task";
     }
 
 }

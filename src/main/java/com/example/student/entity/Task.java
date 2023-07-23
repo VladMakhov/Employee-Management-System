@@ -17,8 +17,25 @@ public class Task {
 
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+
+    })
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employeeId;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public Employee getEmployeeId() {
+        return employeeId;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

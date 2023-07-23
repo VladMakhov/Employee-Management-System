@@ -47,7 +47,7 @@
             <td th:text="${employee.getTitle()}"></td>
             <td th:text="${employee.getSalary()} + '$'"></td>
             <td>
-                <a th:href="@{/employees/task/{id}(id=${employee.getId()})}" class="btn btn-warning">Tasks</a>
+                <a th:href="@{/employees/tasks/{id}(id=${employee.getId()})}" class="btn btn-warning">Tasks</a>
                 <a th:href="@{/employees/edit/{id}(id=${employee.getId()})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/employees/{id}(id=${employee.getId()})}" class="btn btn-danger">Delete</a>
             </td>

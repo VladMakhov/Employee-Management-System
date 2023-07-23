@@ -32,18 +32,14 @@
         <thead class="table-dark">
         <tr>
             <th>Task Description</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-<!--        <tr th:each="task: ${tasks}">-->
-<!--            <td>-->
-<!--                <th th:text="${task.getDescription()}"></th>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <a th:href="@{/employees}" class="btn btn-success">Submit</a>-->
-<!--            </td>-->
-<!--        </tr>-->
+        <tr th:each="task: ${tasks}">
+            <th th:text="${task.getDescription()}"></th>
+            <th><a th:href="@{/employees/deleteTask/{id}(id=${task.getId()})}" class="btn btn-success">Submit</a></th>
+        </tr>
         </tbody>
     </table>
 </div>
