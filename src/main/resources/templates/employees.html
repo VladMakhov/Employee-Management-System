@@ -2,13 +2,13 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Management System</title>
+    <title>Yoko</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Student Management System</a>
+    <a class="navbar-brand" href="">Employee Management System</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -19,11 +19,11 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1>List Students</h1>
+        <h1>List of Employees</h1>
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3">Add Student</a>
+            <a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">Add Employee</a>
         </div>
     </div>
     <table class="table table-striped table-border">
@@ -32,19 +32,24 @@
             <th>Id</th>
             <th>Name</th>
             <th>Surname</th>
-            <th>Email</th>
+            <th>Department</th>
+            <th>Title</th>
+            <th>Salary</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student: ${students}">
-            <td th:text="${student.getId()}"></td>
-            <td th:text="${student.getName()}"></td>
-            <td th:text="${student.getSurname()}"></td>
-            <td th:text="${student.getEmail()}"></td>
+        <tr th:each="employee: ${employees}">
+            <td th:text="${employee.getId()}"></td>
+            <td th:text="${employee.getName()}"></td>
+            <td th:text="${employee.getSurname()}"></td>
+            <td th:text="${employee.getDepartment()}"></td>
+            <td th:text="${employee.getTitle()}"></td>
+            <td th:text="${employee.getSalary()} + '$'"></td>
             <td>
-                <a th:href="@{/students/edit/{id}(id=${student.getId()})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/students/{id}(id=${student.getId()})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/employees/tasks/{id}(id=${employee.getId()})}" class="btn btn-warning">Tasks</a>
+                <a th:href="@{/employees/edit/{id}(id=${employee.getId()})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/employees/{id}(id=${employee.getId()})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>

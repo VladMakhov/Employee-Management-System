@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Student Management System</title>
+    <title>Yoko</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -11,65 +11,50 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Student Management System</a>
+    <a class="navbar-brand" href="">Employee Management System</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-
 </nav>
 <br>
 <br>
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center"> Update Student </h1>
+            <h1 class="text-center"> Create New Task </h1>
             <div class="card-body">
-                <form th:action="@{/students/{id} (id=${student.id})}" th:object="${student}" method="POST">
+                <form th:action="@{tasks}" th:object="${task}" method="POST">
                     <div class="form-group">
-                        <label> Student First Name </label>
+                        <label> Task Description </label>
                         <input
                                 type="text"
-                                name="firstName"
-                                th:field="*{name}"
+                                name="description"
+                                th:field="*{description}"
                                 class="form-control"
-                                placeholder="Enter Student First Name"
+                                placeholder="Enter Task Description"
                         />
                     </div>
-
                     <div class="form-group">
-                        <label> Student Last Name </label>
+                        <label> Employee ID </label>
                         <input
                                 type="text"
-                                name="lastName"
-                                th:field="*{surname}"
+                                name="description"
+                                th:field="*{employeeId}"
                                 class="form-control"
-                                placeholder="Enter Student Last Name"
+                                placeholder="Enter Employee ID"
                         />
                     </div>
-
-                    <div class="form-group">
-                        <label> Student Email </label>
-                        <input
-                                type="text"
-                                name="email"
-                                th:field="*{email}"
-                                class="form-control"
-                                placeholder="Enter Student Email"
-                        />
-                    </div>
-
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">
                             Submit
                         </button>
                         <br>
                         <br>
-                        <a th:href="@{/students}">Back To Students</a>
+                        <a th:href="@{/employees}">Back To Employees</a>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
