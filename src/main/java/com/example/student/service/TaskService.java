@@ -1,8 +1,6 @@
 package com.example.student.service;
 
-import com.example.student.entity.Employee;
 import com.example.student.entity.Task;
-import com.example.student.repository.EmployeeRepository;
 import com.example.student.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,23 +12,14 @@ import java.util.List;
 public class TaskService {
 
     private final TaskRepository taskRepository;
-    private EmployeeRepository employeeRepository;
 
     @Autowired
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getAllTask() {
-        return taskRepository.findAll();
-    }
-
-    public Task saveTask(Task task) {
-        return taskRepository.save(task);
-    }
-
-    public Employee getEmployeeById(int id) {
-        return employeeRepository.findById(id).get();
+    public void saveTask(Task task) {
+        taskRepository.save(task);
     }
 
     public List<Task> getTasksById(int id) {
@@ -42,10 +31,6 @@ public class TaskService {
             }
         }
         return result;
-    }
-
-    public Task updateTask(Task task) {
-        return taskRepository.save(task);
     }
 
     public void deleteTaskById(int id) {

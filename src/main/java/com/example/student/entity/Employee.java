@@ -25,12 +25,4 @@ public class Employee {
 
     @OneToMany(mappedBy = "employeeId", cascade = CascadeType.ALL)
     private List<Task> taskList;
-
-    public Employee(String name, String surname, String department, String title, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.department = department;
-        this.title = title;
-        this.salary = salary;
-    }
 }
