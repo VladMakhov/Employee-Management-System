@@ -1,4 +1,4 @@
-# Student-Management-System
+# Employee-Management-System
 To run project:
 1) To console: git clone https://github.com/VladMakhov/Student-Management-System
 2) Open project with your IDE 
