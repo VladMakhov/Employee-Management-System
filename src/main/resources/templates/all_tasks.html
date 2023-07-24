@@ -37,7 +37,8 @@
         <tbody>
         <tr th:each="task: ${tasks}">
             <th th:text="${task.getDescription()}"></th>
-            <th><a th:href="@{/employees/deleteTask/{id}(id=${task.getId()})}" class="btn btn-success">Task Is Complete</a></th>
+            <th><a th:href="@{/employees/deleteTask/{id}(id=${task.getId()})}" class="btn btn-success">Task Is
+                Complete</a></th>
         </tr>
         </tbody>
     </table>

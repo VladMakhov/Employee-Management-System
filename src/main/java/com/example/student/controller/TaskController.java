@@ -25,7 +25,6 @@ public class TaskController {
         return "all_tasks";
     }
 
-
     @GetMapping("/employees/deleteTask/{id}")
     public String deleteServiceById(HttpServletRequest request, @PathVariable int id) {
         String referer = request.getHeader("Referer");

@@ -21,10 +21,7 @@ public class Task {
             CascadeType.DETACH,
             CascadeType.PERSIST,
             CascadeType.MERGE,
-            CascadeType.REFRESH
-
-    })
-
+            CascadeType.REFRESH})
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employeeId;
 
