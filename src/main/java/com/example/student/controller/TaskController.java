@@ -3,9 +3,11 @@ package com.example.student.controller;
 import com.example.student.entity.Task;
 import com.example.student.service.EmployeeService;
 import com.example.student.service.TaskService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -28,10 +30,10 @@ public class TaskController {
 
 
     @GetMapping("/employees/deleteTask/{id}")
-    public String deleteServiceById(@PathVariable int id) {
+    public String deleteServiceById(HttpServletRequest request, @PathVariable int id) {
+        String referer = request.getHeader("Referer");
         taskService.deleteTaskById(id);
-
-        return "redirect:/employees";
+        return "redirect:" + referer;
     }
 
     @PostMapping("/employees/tasks")
@@ -41,9 +43,11 @@ public class TaskController {
     }
 
     @GetMapping("/employees/newTask")
-    public String createNewTask(Model model) {
+    public String createNewTask(HttpServletRequest request, Model model) {
         Task task = new Task();
+        String redirect = "redirect:" + request.getHeader("Referer");
         model.addAttribute("task", task);
+        model.addAttribute("redirect:", redirect);
         return "create_task";
     }
 }
