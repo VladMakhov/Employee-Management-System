@@ -45,9 +45,10 @@ public class TaskController {
     @GetMapping("/employees/newTask")
     public String createNewTask(HttpServletRequest request, Model model) {
         Task task = new Task();
-        String redirect = "redirect:" + request.getHeader("Referer");
+        String referer = request.getHeader("Referer");
+        String redirect = "redirect:" + referer;
         model.addAttribute("task", task);
-        model.addAttribute("redirect:", redirect);
+        model.addAttribute("referer", redirect);
         return "create_task";
     }
 }
