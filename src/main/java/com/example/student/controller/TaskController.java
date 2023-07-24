@@ -1,20 +1,17 @@
 package com.example.student.controller;
 
 import com.example.student.entity.Task;
-import com.example.student.service.EmployeeService;
 import com.example.student.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 public class TaskController {
     private final TaskService taskService;
-    private EmployeeService employeeService;
 
     @Autowired
     public TaskController(TaskService taskService) {
