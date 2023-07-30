@@ -23,7 +23,7 @@ public class TaskService {
     }
 
     public List<Task> getTasksById(int id) {
-        List<Task> allTasks = taskRepository.findAll();
+        var allTasks = taskRepository.findAll();
         List<Task> result = new ArrayList<>();
         for(Task task : allTasks) {
             if (task.getEmployeeId().getId() == id) {

@@ -26,7 +26,7 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(int id) {
-        return employeeRepository.findById(id).get();
+        return employeeRepository.findById(id).orElse(null);
     }
 
     public Employee updateEmployee(Employee student) {

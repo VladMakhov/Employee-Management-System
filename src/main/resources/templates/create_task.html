@@ -23,7 +23,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class="text-center"> Create New Task </h1>
             <div class="card-body">
-                <form th:action="@{tasks}" th:object="${task}" method="POST">
+                <form th:action="@{/employees/all_tasks}" th:object="${task}" method="POST">
                     <div class="form-group">
                         <label> Task Description </label>
                         <input
@@ -38,10 +38,10 @@
                         <label> Employee ID </label>
                         <input
                                 type="text"
-                                name="description"
-                                th:field="*{employeeId}"
+                                name="id"
+                                th:field="${task.employeeId}"
                                 class="form-control"
-                                placeholder="Enter Employee ID"
+                                th:placeholder="${task.employeeId}"
                         />
                     </div>
                     <div class="box-footer">

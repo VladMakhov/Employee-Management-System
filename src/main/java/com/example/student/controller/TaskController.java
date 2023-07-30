@@ -1,6 +1,7 @@
 package com.example.student.controller;
 
 import com.example.student.entity.Task;
+import com.example.student.service.EmployeeService;
 import com.example.student.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TaskController {
+
+    private final EmployeeService employeeService;
+
     private final TaskService taskService;
 
-    @Autowired
-    public TaskController(TaskService taskService) {
+    public TaskController(EmployeeService employeeService, TaskService taskService) {
+        this.employeeService = employeeService;
         this.taskService = taskService;
     }
 
@@ -32,19 +36,18 @@ public class TaskController {
         return "redirect:" + referer;
     }
 
-    @PostMapping("/employees/tasks")
+    @PostMapping("/employees/all_tasks")
     public String saveTask(@ModelAttribute("task") Task task) {
+//        task.setEmployeeId(task.getEmployeeId());
         taskService.saveTask(task);
         return "redirect:/employees";
     }
 
-    @GetMapping("/employees/newTask")
-    public String createNewTask(HttpServletRequest request, Model model) {
+    @GetMapping("/employees/newTask/{id}")
+    public String createTask(Model model, @PathVariable int id) {
         Task task = new Task();
-        String referer = request.getHeader("Referer");
-        String redirect = "redirect:" + referer;
+        task.setEmployeeId(employeeService.getEmployeeById(id));
         model.addAttribute("task", task);
-        model.addAttribute("referer", redirect);
         return "create_task";
     }
 }
