@@ -1,6 +1,7 @@
-package com.example.student.entity;
+package com.example.system.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 import java.util.List;
@@ -21,9 +22,6 @@ public class Employee {
 
     @OneToMany(mappedBy = "employeeId", cascade = CascadeType.ALL)
     private List<Task> taskList;
-
-    public Employee() {
-    }
 
     public int getId() {
         return id;
@@ -81,6 +79,9 @@ public class Employee {
         this.salary = salary;
     }
 
+
+    public Employee() {
+    }
 
     public Employee(int id, String name, String surname, String department, String title, int salary, List<Task> taskList) {
         this.id = id;

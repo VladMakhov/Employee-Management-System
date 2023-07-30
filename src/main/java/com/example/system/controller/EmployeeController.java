@@ -1,11 +1,11 @@
-package com.example.student.controller;
+package com.example.system.controller;
 
-import com.example.student.entity.Employee;
-import com.example.student.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.system.entity.Employee;
+import com.example.system.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,6 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @Autowired
     public EmployeeController(EmployeeService service) {
         this.employeeService = service;
     }

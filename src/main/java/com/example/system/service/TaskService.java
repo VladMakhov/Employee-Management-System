@@ -1,7 +1,7 @@
-package com.example.student.service;
+package com.example.system.service;
 
-import com.example.student.entity.Task;
-import com.example.student.repository.TaskRepository;
+import com.example.system.entity.Task;
+import com.example.system.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,6 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    @Autowired
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }

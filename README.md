@@ -6,3 +6,6 @@ To run project:
 4) Check for uploading all dependencies and imports
 5) Run the StudentApplication
 6) Go to http://localhost:8080/employees
+
+Technology used:
+Java, Spring Framework (Boot, Core, MVC), Jpa (Hibernate), MySQL, Git, Maven, HTML, CSS (Bootstrap), Thymeleaf

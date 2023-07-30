@@ -1,9 +1,9 @@
-package com.example.student.controller;
+package com.example.system.controller;
 
-import com.example.student.entity.Employee;
-import com.example.student.entity.Task;
-import com.example.student.service.EmployeeService;
-import com.example.student.service.TaskService;
+import com.example.system.entity.Employee;
+import com.example.system.entity.Task;
+import com.example.system.service.EmployeeService;
+import com.example.system.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

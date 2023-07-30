@@ -1,4 +1,4 @@
-package com.example.student.entity;
+package com.example.system.entity;
 
 import jakarta.persistence.*;
 
@@ -23,16 +23,16 @@ public class Task {
     public Task() {
     }
 
+    public Task(int id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
     public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Task(int id, String description) {
-        this.id = id;
         this.description = description;
     }
 
