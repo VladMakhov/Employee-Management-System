@@ -21,12 +21,12 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public void saveEmployee(Employee employee) {
+        employeeRepository.save(employee);
     }
 
-    public Employee updateEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public void updateEmployee(Employee employee) {
+        employeeRepository.save(employee);
     }
 
     public Employee getEmployeeById(int id) {

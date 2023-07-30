@@ -33,12 +33,6 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("/employees/{id}")
-    public String deleteEmployee(@PathVariable int id) {
-        employeeService.deleteEmployeeById(id);
-        return "redirect:/employees";
-    }
-
     @PostMapping("/employees/{id}")
     public String updateEmployee(@PathVariable int id, @ModelAttribute("employee") Employee employee) {
         Employee existingEmployee = employeeService.getEmployeeById(id);
@@ -50,6 +44,12 @@ public class EmployeeController {
         existingEmployee.setSalary(employee.getSalary());
 
         employeeService.updateEmployee(existingEmployee);
+        return "redirect:/employees";
+    }
+
+    @GetMapping("/employees/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+        employeeService.deleteEmployeeById(id);
         return "redirect:/employees";
     }
 

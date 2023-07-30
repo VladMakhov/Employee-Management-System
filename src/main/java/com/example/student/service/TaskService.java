@@ -18,12 +18,8 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public Task saveTask(Task task) {
-        return taskRepository.save(task);
-    }
-
-    public Task updateTask(Task task) {
-        return taskRepository.save(task);
+    public void saveTask(Task task) {
+        taskRepository.save(task);
     }
 
     public List<Task> getTasksById(int id) {

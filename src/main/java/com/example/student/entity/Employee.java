@@ -25,6 +25,37 @@ public class Employee {
     public Employee() {
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -50,9 +81,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void setTaskList(List<Task> taskList) {
-        this.taskList = taskList;
-    }
 
     public Employee(int id, String name, String surname, String department, String title, int salary, List<Task> taskList) {
         this.id = id;

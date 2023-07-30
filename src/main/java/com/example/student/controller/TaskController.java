@@ -40,7 +40,8 @@ public class TaskController {
     }
 
     @PostMapping("/employees/saveTask/{id}")
-    public String saveTask(@ModelAttribute("task") Task task) {
+    public String saveTask(@PathVariable int id, @ModelAttribute("task") Task task) {
+        task.setEmployeeId(employeeService.getEmployeeById(id));
         taskService.saveTask(task);
         return "redirect:/employees/tasks/{id}";
     }
