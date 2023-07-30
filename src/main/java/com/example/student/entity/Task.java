@@ -1,18 +1,13 @@
 package com.example.student.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "tasks")
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "init", initialValue = 100)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "init")
     private int id;
 
     private String description;
@@ -25,15 +20,35 @@ public class Task {
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employeeId;
 
+    public Task() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Task(int id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    public void setEmployeeId(Employee employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public Employee getEmployeeId() {
         return employeeId;
-    }
-
-    public int getId() {
-        return id;
     }
 }

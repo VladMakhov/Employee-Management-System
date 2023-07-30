@@ -1,20 +1,27 @@
 package com.example.student.controller;
 
+import com.example.student.entity.Employee;
 import com.example.student.entity.Task;
+import com.example.student.service.EmployeeService;
 import com.example.student.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
 public class TaskController {
+
+    private final EmployeeService employeeService;
+
     private final TaskService taskService;
 
-    @Autowired
-    public TaskController(TaskService taskService) {
+    public TaskController(EmployeeService employeeService, TaskService taskService) {
+        this.employeeService = employeeService;
         this.taskService = taskService;
     }
 
@@ -32,19 +39,19 @@ public class TaskController {
         return "redirect:" + referer;
     }
 
-    @PostMapping("/employees/tasks")
-    public String saveTask(@ModelAttribute("task") Task task) {
+    @PostMapping("/employees/saveTask/{id}")
+    public String saveTask(@PathVariable int id, @ModelAttribute("task") Task task) {
+        task.setEmployeeId(employeeService.getEmployeeById(id));
         taskService.saveTask(task);
-        return "redirect:/employees";
+        return "redirect:/employees/tasks/{id}";
     }
 
-    @GetMapping("/employees/newTask")
-    public String createNewTask(HttpServletRequest request, Model model) {
+    @GetMapping("/employees/newTask/{id}")
+    public String createTask(Model model, @PathVariable int id) {
         Task task = new Task();
-        String referer = request.getHeader("Referer");
-        String redirect = "redirect:" + referer;
+        Employee employee = employeeService.getEmployeeById(id);
+        task.setEmployeeId(employee);
         model.addAttribute("task", task);
-        model.addAttribute("referer", redirect);
         return "create_task";
     }
 }
