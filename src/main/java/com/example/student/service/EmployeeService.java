@@ -21,16 +21,16 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee saveEmployee(Employee student) {
-        return employeeRepository.save(student);
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public Employee updateEmployee(Employee employee) {
+        return employeeRepository.save(employee);
     }
 
     public Employee getEmployeeById(int id) {
         return employeeRepository.findById(id).orElse(null);
-    }
-
-    public Employee updateEmployee(Employee student) {
-        return employeeRepository.save(student);
     }
 
     public void deleteEmployeeById(int id) {
