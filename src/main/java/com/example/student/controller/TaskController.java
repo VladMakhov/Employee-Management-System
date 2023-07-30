@@ -39,7 +39,7 @@ public class TaskController {
         return "redirect:" + referer;
     }
 
-    @PostMapping("/employees/tasks/{id}")
+    @PostMapping("/employees/saveTask/{id}")
     public String saveTask(@ModelAttribute("task") Task task) {
         taskService.saveTask(task);
         return "redirect:/employees/tasks/{id}";
