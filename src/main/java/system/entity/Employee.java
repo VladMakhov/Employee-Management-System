@@ -1,12 +1,10 @@
 package system.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
 
 import java.util.List;
 
 
-@Getter
 @Entity
 @Table(name = "employees")
 public class Employee {
