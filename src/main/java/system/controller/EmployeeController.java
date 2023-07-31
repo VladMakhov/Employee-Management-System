@@ -1,8 +1,8 @@
-package com.example.system.controller;
+package system.controller;
 
-import com.example.system.entity.Employee;
-import com.example.system.service.EmployeeService;
-import jakarta.validation.Valid;
+import system.entity.Employee;
+import system.service.interfaces.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +16,9 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService service) {
-        this.employeeService = service;
+    @Autowired
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")

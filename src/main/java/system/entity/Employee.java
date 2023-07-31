@@ -1,7 +1,6 @@
-package com.example.system.entity;
+package system.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 import java.util.List;

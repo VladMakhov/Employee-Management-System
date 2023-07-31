@@ -1,26 +1,28 @@
-package com.example.system.service;
+package system.service.implementations;
 
-import com.example.system.entity.Task;
-import com.example.system.repository.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import system.entity.Task;
+import system.repository.TaskRepository;
+import system.service.interfaces.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class TaskService {
+public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
 
-    public TaskService(TaskRepository taskRepository) {
+    public TaskServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
+    @Override
     public void saveTask(Task task) {
         taskRepository.save(task);
     }
 
+    @Override
     public List<Task> getTasksById(int id) {
         var allTasks = taskRepository.findAll();
         List<Task> result = new ArrayList<>();
@@ -32,6 +34,7 @@ public class TaskService {
         return result;
     }
 
+    @Override
     public void deleteTaskById(int id) {
         taskRepository.deleteById(id);
     }

@@ -1,10 +1,11 @@
-package com.example.system.controller;
+package system.controller;
 
-import com.example.system.entity.Employee;
-import com.example.system.entity.Task;
-import com.example.system.service.EmployeeService;
-import com.example.system.service.TaskService;
+import system.entity.Employee;
+import system.entity.Task;
+import system.service.interfaces.EmployeeService;
+import system.service.interfaces.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
+    @Autowired
     public TaskController(EmployeeService employeeService, TaskService taskService) {
         this.employeeService = employeeService;
         this.taskService = taskService;
