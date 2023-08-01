@@ -1,6 +1,6 @@
 # Employee-Management-System
 To run project:
-1) To console: git clone https://github.com/VladMakhov/Employee-Management-System
+1) To console: git fork https://github.com/VladMakhov/Employee-Management-System
 2) Open project with your favorite IDE 
 3) Change application.properties database url, username, password for your database (it will create table automatically)
 4) Check for uploading all dependencies and imports
