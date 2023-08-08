@@ -6,7 +6,7 @@ To run project:
 4) Check for uploading all dependencies and imports
 5) Run the StudentApplication
 6) Go to http://localhost:8080/employees
-
+# Screenshots
 ![Screenshot 2023-07-31 101558](https://github.com/VladMakhov/Employee-Management-System/assets/128775444/db6233be-cbc9-4ab6-9d10-caea038da0bd)
 
 ![Screenshot 2023-07-31 102543](https://github.com/VladMakhov/Employee-Management-System/assets/128775444/84c05221-3be4-4203-8a79-f85bc62af73f)
